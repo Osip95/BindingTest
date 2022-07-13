@@ -5,9 +5,10 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 
 
-class Binder(owner: LifecycleOwner, private  val liveData: MutableLiveData<String>,
-                 private val setter:(String)->Unit){
-        private var settingValue = false
+class Binder(owner: LifecycleOwner, private  val liveData: MutableLiveData<String>,private val setter:(String)->Unit){
+
+    private var settingValue = false
+
     init{
             liveData.observe(owner, Observer { value ->
                 if (!settingValue){
@@ -17,6 +18,7 @@ class Binder(owner: LifecycleOwner, private  val liveData: MutableLiveData<Strin
                 }
             })
         }
+
     fun setValue(value: String){
             if (!settingValue) {
                 settingValue = true

@@ -1,6 +1,5 @@
 package com.example.testbinding
 
-
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
@@ -14,6 +13,11 @@ class TestViewModel : ViewModel(){
         liveData2.value = it.uppercase()
     }
  }
+
+    fun clearText(){
+        liveData.value = ""
+    }
+
 
 }
 
